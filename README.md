@@ -1,0 +1,1 @@
+# Zebra-Scanner-iOS-Cordova_plugin
