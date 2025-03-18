@@ -1,0 +1,28 @@
+<html>
+<body>
+    <img id="barcodeImg" style="width:300px;height:auto;" alt="Zebra STC Barcode"/>
+    <button id="pair">Generate Pairing Barcode</button>
+    <button id="disconnect">Disconnect Scanner</button>
+    <script type="text/javascript">
+        console.log("Device ready123");
+        document.addEventListener('deviceready', function() {
+            console.log("Device ready");
+            document.getElementById('pair').addEventListener('click', function() {
+                console.log("Button clicked");
+                ZebraSTCPlugin.generateSTCBarcode(function(base64Data){
+                    document.getElementById('barcodeImg').src = "data:image/png;base64," + base64Data;
+                }, function(err){
+                    console.error("Error:", err);
+                });
+            });
+            document.getElementById('disconnect').addEventListener('click', function() {
+                ZebraSTCPlugin.disconnectScanner(function(message){
+                    console.log(message);
+                }, function(err){
+                    console.error("Error:", err);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
