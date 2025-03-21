@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-zebra-stc-barcode"
+        version="1.0.0">
+    <name>ZebraSTCBarcode</name>
+    <description>Zebra STC Barcode generator (minimal) for iOS using Zebra Scanner SDK via SPM.</description>
+    <license>MIT</license>
+    <keywords>cordova,zebra,barcode,stc</keywords>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ZebraSTCPlugin">
+                <param name="ios-package" value="ZebraSTCPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/ios/ZebraSTCPlugin.swift" />
+        <!-- Swift Package Manager integration (official Zebra SDK repo) -->
+        <framework src="https://github.com/ZebraDevs/Zebra-Scanner-SDK-iOS-SPM.git" type="swift-package" />
+    </platform>
+    <js-module src="www/ZebraSTCPlugin.js" name="ZebraSTCPlugin">
+        <clobbers target="ZebraSTCPlugin" />
+    </js-module>
+</plugin>
